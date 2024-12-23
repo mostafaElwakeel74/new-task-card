@@ -1,33 +1,37 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #1A1A19;
     color: white;
-    perspective: 2000px;
+    perspective: 2000px; /* Adds 3D depth for rotating elements */
 }
+
 .header {
-    background-color:#31511E;
+    background-color: #31511E;
     width: 100%;
     height: 55px;
     position: fixed;
     z-index: 50;
     position: relative;
-
 }
+
 .logo {
     width: 150px;
     height: 55px;
     margin-left: 80px;
     float: left;
 }
+
 .list {
     float: right;
     margin-right: 90px;
 }
+
 .list li {
     display: inline-block;
     margin-right: 20px;
@@ -36,16 +40,20 @@ body {
     text-transform: capitalize;
     margin-top: 17px;
 }
+
 .list li a {
     text-decoration: none;
     color: white;
 }
+
+/* Divider Line Below Title */
 .products-line {
     width: 90px;
     height: 4px;
-    background-color:#859F3D;
+    background-color: #859F3D;
     margin: auto;
 }
+
 .porducts-title {
     text-align: center;
     text-transform: uppercase;
@@ -53,85 +61,117 @@ body {
     margin-bottom: 20px;
     margin-top: 130px;
 }
+
+/* Product Grid Container */
 .products-container {
     width: 80%;
-    height: 1900px;
-    margin:auto ;
+    margin: auto;
     margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.products-container .product{
-    width: 25%;
-    height:22%;
-    float: left;
-    border-radius: 10px;
-    background-size: cover;
-    box-shadow: 1px 1px 8px 8px #38432e;
-    position: absolute;
-    backface-visibility: hidden;
-    z-index: 1;
-}
-.products-container .product-back{
-    width: 25%;
-    height:22%;
-    float: left;
-    border-radius: 10px;
-    background-size: cover;
-    box-shadow: 1px 1px 8px 8px #38432e;
-    position: absolute;
-}
-.product:hover {
-    transform: rotateY(180deg);
+/* Individual Product Card */
+.product-content {
+    width: 22%;
+    perspective: 1000px; /* 3D depth for each card */
 }
 
-.products-container .product2 ,.product5,.product8 ,.product11 {
-    margin: 0 12.5%;
+.product {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    transform-style: preserve-3d; /* Ensures child elements are 3D */
+    transition: transform 0.8s ease; /* Smooth rotation animation */
 }
-.products-container .product4 ,.product5,.product6  {
-    margin-top: 4%;
-    margin-bottom: 4%;
+
+.product-content:hover .product {
+    transform: rotateY(180deg); /* Rotates the card on hover */
 }
-.products-container .product7 ,.product8,.product9 {
-    margin-bottom: 4%;
+
+/* Front Face */
+.product-front, .product-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the side not visible */
+    border-radius: 8px;
+    overflow: hidden;
 }
-.products-container .product1 {
-    background-image:url(../images/MercedesG63.jpeg);
-    background-position: 70%;
+
+.product-front {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.products-container .product2 {
-    background-image: url(../images/download2.jpeg);
+
+.product-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.products-container .product3 {
-    background-image:url(../images/ff04b63a-1e6d-4e19-a8d6-6847425b7416.jpeg);
+
+
+
+
+/* Back Face */
+.product-back {
+    background: linear-gradient(135deg, rgb(198, 250, 198), rgb(135, 176, 135));
+    color: white;
+    position: relative; /* To position .back-details inside it */
+    transform: rotateY(180deg); /* Starts rotated to align with 3D flip */
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.products-container .product4 {
-    background-image:url(../images/be501380-91ba-44fc-8147-89cb07fb6986.jpeg);
-    background-position: 100%;
+
+/* Back Overlay Image */
+.back-overlay {
+    position: absolute; /* Position it relative to .product-back */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensure it stays behind the text */
+    overflow: hidden;
 }
-.products-container .product5 {
-    background-image:url(../images/f56c8a16-a857-468b-b819-7111c91ed4d7.jpeg);
+
+/* Image inside back overlay */
+.back-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3; /* Make image slightly transparent */
 }
-.products-container .product6 {
-    background-image:url(../images/33f2e21d-2d81-42cb-9e3f-057fbf17a138.jpeg);
-    background-position: 30%;
+
+/* Back Details (Centered above the image) */
+.back-details {
+    position: absolute; /* Take it out of normal flow to position above the image */
+    top: 37%; /* Adjust to your liking */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Align perfectly to the center */
+    z-index: 1; /* Ensure it's above the overlay image */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1a1a1960;
 }
-.products-container .product7 {
-    background-image:url(../images/5414fa32-809f-4189-ac69-4810e94caf5c.jpegimagesPorsche911Sunset.jpeg);
-    background-position: 20%;
+
+.back-details h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
-.products-container .product8 {
-    background-image:url(../images/download1.jpeg);
-    background-position: 30%;
-}
-.products-container .product9 {
-    background-image:url(../images/Monterey2016-Mercedes-Benz300SLLots-ScottGrundforCompany-ClassicCollectibleMercedesBenzCarss.jpeg);
-}
-.products-container .product10 {
-    background-image:url(../images/sweet-car1.jpg);
-}
-.products-container .product11 {
-    background-image:url(../images/gray-car2.jpeg);
-}
-.products-container .product12 {
-    background-image:url(../images/red-classic-car.jpeg);
+
+.back-details span {
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
 }
