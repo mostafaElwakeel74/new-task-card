@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #1A1A19;
+    color: white;
+    perspective: 2000px;
+}
+.header {
+    background-color:#31511E;
+    width: 100%;
+    height: 55px;
+    position: fixed;
+    z-index: 50;
+    position: relative;
+
+}
+.logo {
+    width: 150px;
+    height: 55px;
+    margin-left: 80px;
+    float: left;
+}
+.list {
+    float: right;
+    margin-right: 90px;
+}
+.list li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize;
+    margin-top: 17px;
+}
+.list li a {
+    text-decoration: none;
+    color: white;
+}
+.products-line {
+    width: 90px;
+    height: 4px;
+    background-color:#859F3D;
+    margin: auto;
+}
+.porducts-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 45px;
+    margin-bottom: 20px;
+    margin-top: 130px;
+}
+.products-container {
+    width: 80%;
+    height: 1900px;
+    margin:auto ;
+    margin-top: 50px;
+}
+
+.products-container .product{
+    width: 25%;
+    height:22%;
+    float: left;
+    border-radius: 10px;
+    background-size: cover;
+    box-shadow: 1px 1px 8px 8px #38432e;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+.products-container .product-back{
+    width: 25%;
+    height:22%;
+    float: left;
+    border-radius: 10px;
+    background-size: cover;
+    box-shadow: 1px 1px 8px 8px #38432e;
+    position: absolute;
+}
+.product:hover {
+    transform: rotateY(180deg);
+}
+
+.products-container .product2 ,.product5,.product8 ,.product11 {
+    margin: 0 12.5%;
+}
+.products-container .product4 ,.product5,.product6  {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.products-container .product7 ,.product8,.product9 {
+    margin-bottom: 4%;
+}
+.products-container .product1 {
+    background-image:url(../images/MercedesG63.jpeg);
+    background-position: 70%;
+}
+.products-container .product2 {
+    background-image: url(../images/download2.jpeg);
+}
+.products-container .product3 {
+    background-image:url(../images/ff04b63a-1e6d-4e19-a8d6-6847425b7416.jpeg);
+}
+.products-container .product4 {
+    background-image:url(../images/be501380-91ba-44fc-8147-89cb07fb6986.jpeg);
+    background-position: 100%;
+}
+.products-container .product5 {
+    background-image:url(../images/f56c8a16-a857-468b-b819-7111c91ed4d7.jpeg);
+}
+.products-container .product6 {
+    background-image:url(../images/33f2e21d-2d81-42cb-9e3f-057fbf17a138.jpeg);
+    background-position: 30%;
+}
+.products-container .product7 {
+    background-image:url(../images/5414fa32-809f-4189-ac69-4810e94caf5c.jpegimagesPorsche911Sunset.jpeg);
+    background-position: 20%;
+}
+.products-container .product8 {
+    background-image:url(../images/download1.jpeg);
+    background-position: 30%;
+}
+.products-container .product9 {
+    background-image:url(../images/Monterey2016-Mercedes-Benz300SLLots-ScottGrundforCompany-ClassicCollectibleMercedesBenzCarss.jpeg);
+}
+.products-container .product10 {
+    background-image:url(../images/sweet-car1.jpg);
+}
+.products-container .product11 {
+    background-image:url(../images/gray-car2.jpeg);
+}
+.products-container .product12 {
+    background-image:url(../images/red-classic-car.jpeg);
+}
