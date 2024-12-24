@@ -8,7 +8,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #1A1A19;
     color: white;
-    perspective: 2000px; /* Adds 3D depth for rotating elements */
+    perspective: 2000px; 
 }
 
 .header {
@@ -46,7 +46,6 @@ body {
     color: white;
 }
 
-/* Divider Line Below Title */
 .products-line {
     width: 90px;
     height: 4px;
@@ -62,7 +61,6 @@ body {
     margin-top: 130px;
 }
 
-/* Product Grid Container */
 .products-container {
     width: 80%;
     margin: auto;
@@ -74,37 +72,35 @@ body {
     gap: 20px;
 }
 
-/* Individual Product Card */
 .product-content {
     width: 22%;
-    perspective: 1000px; /* 3D depth for each card */
 }
 
 .product {
     position: relative;
     width: 100%;
     height: 320px;
-    transform-style: preserve-3d; /* Ensures child elements are 3D */
-    transition: transform 0.8s ease; /* Smooth rotation animation */
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
 }
 
 .product-content:hover .product {
-    transform: rotateY(180deg); /* Rotates the card on hover */
+    transform: rotateY(180deg);
 }
 
-/* Front Face */
+
 .product-front, .product-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Hides the side not visible */
+    backface-visibility: hidden;
     border-radius: 8px;
     overflow: hidden;
 }
 
 .product-front {
     background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 8px 10px rgba(119, 139, 100, 0.4);
 }
 
 .product-front img {
@@ -113,50 +109,42 @@ body {
     object-fit: cover;
 }
 
-
-
-
-/* Back Face */
 .product-back {
-    background: linear-gradient(135deg, rgb(198, 250, 198), rgb(135, 176, 135));
+    background: linear-gradient(135deg, gray,  #000);
     color: white;
-    position: relative; /* To position .back-details inside it */
-    transform: rotateY(180deg); /* Starts rotated to align with 3D flip */
+    position: relative;
+    transform: rotateY(180deg);
     text-align: center;
     font-size: 18px;
     padding: 20px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Back Overlay Image */
 .back-overlay {
-    position: absolute; /* Position it relative to .product-back */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Ensure it stays behind the text */
+    z-index: 0; 
     overflow: hidden;
 }
 
-/* Image inside back overlay */
 .back-overlay img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3; /* Make image slightly transparent */
+    opacity: 0.2; 
 }
 
-/* Back Details (Centered above the image) */
 .back-details {
-    position: absolute; /* Take it out of normal flow to position above the image */
-    top: 37%; /* Adjust to your liking */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Align perfectly to the center */
-    z-index: 1; /* Ensure it's above the overlay image */
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
     color: white;
     text-align: center;
     padding: 10px;
